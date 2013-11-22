@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{38B6EFC6-5136-44BE-B9A1-924A705AE105}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ColdPlace.Inquiry</RootNamespace>
+    <AssemblyName>Inquiry</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\..\Inquiry\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="ScintillaNet">
+      <HintPath>..\..\..\Inquiry\ScintillaNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main\Main.Files.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Main.Log.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Main.Parameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Main.Queries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Main.Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryForm\QueryForm.Execution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryForm\QueryForm.Schemata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryForm\QueryForm.TextProcessors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CodeExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CodeExport.Designer.cs">
+      <DependentUpon>CodeExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CodeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CodeWindow.Designer.cs">
+      <DependentUpon>CodeWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConnectionStringManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConnectionStringManager.Designer.cs">
+      <DependentUpon>ConnectionStringManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data Abstraction.cs" />
+    <Compile Include="UI\ExtensionManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExtensionManager.Designer.cs">
+      <DependentUpon>ExtensionManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectListManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ProjectListManager.Designer.cs">
+      <DependentUpon>ProjectListManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryForm\QueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryForm\QueryForm.Designer.cs">
+      <DependentUpon>QueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schemata.cs" />
+    <EmbeddedResource Include="UI\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CodeExport.resx">
+      <DependentUpon>CodeExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CodeWindow.resx">
+      <DependentUpon>CodeWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConnectionStringManager.resx">
+      <DependentUpon>ConnectionStringManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExtensionManager.resx">
+      <DependentUpon>ExtensionManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProjectListManager.resx">
+      <DependentUpon>ProjectListManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryForm\QueryForm.resx">
+      <DependentUpon>QueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{4E375CCE-4B78-4760-85FC-93AE98BA8B5F}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StandardExtensions\StandardExtensions.csproj">
+      <Project>{6BFB27A7-CFEF-4455-8B52-A41F6BCEE8D0}</Project>
+      <Name>StandardExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_csharp.png" />
+    <None Include="Resources\email_edit.png" />
+    <None Include="Resources\arrow_divide.png" />
+    <Content Include="Resources\icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+    <Copy Condition="'$(Configuration)' == 'Debug'" SourceFiles="@(UnmanagedLibraries)" DestinationFolder="bin/Debug" />
+    <Copy Condition="'$(Configuration)' == 'Release'" SourceFiles="@(UnmanagedLibraries)" DestinationFolder="bin/Release" />
+  </Target>
+</Project>
