@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.Data.Common;
 using System.Reflection;
 using System.Threading;
-using EX = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 
 namespace ColdPlace.Inquiry

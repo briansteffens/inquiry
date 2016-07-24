@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.Data.Common;
 using System.Reflection;
 using System.Threading;
-using EX = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 
 namespace ColdPlace.Inquiry
@@ -60,7 +59,7 @@ namespace ColdPlace.Inquiry
 
             DatabaseCombo.SelectedIndexChanged += new EventHandler(DatabaseCombo_SelectedIndexChanged);
             QueryText.KeyUp += new KeyEventHandler(QueryText_KeyUp);
-            QueryText.TextChanged += new EventHandler<EventArgs>(QueryText_TextChanged);
+            QueryText.TextChanged += new EventHandler(QueryText_TextChanged);
             SchemaView.MouseDoubleClick += new MouseEventHandler(SchemaView_MouseDoubleClick);
             DescriptionText.TextChanged += new EventHandler(DescriptionText_TextChanged);
             TextProcessorList.SelectedIndexChanged += new EventHandler(TextProcessorList_SelectedIndexChanged);
@@ -69,9 +68,6 @@ namespace ColdPlace.Inquiry
         private void Form1_Load(object sender, EventArgs e)
         {
             ResultsTabs.TabPages.Remove(RawSchema);
-            
-            QueryText.ConfigurationManager.Language = "mssql";
-            QueryText.Margins[0].Width = 20;
 
             ReloadConnectionStringList();
 
@@ -288,134 +284,6 @@ namespace ColdPlace.Inquiry
             System.Diagnostics.Process.Start(dialog.FileName);
         }
 
-        private void allTabsToExcelToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (ResultSetTabs.TabPages.Count == 0)
-            {
-                MessageBox.Show("Nothing to export.");
-                return;
-            }
-
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = "Excel files (*.xls)|*.xls|All files (*.*)|*.*";
-            if (DialogResult.OK != dialog.ShowDialog())
-                return;
-
-            EX.Application xl = null;
-            EX._Workbook wb = null;
-            EX._Worksheet sheet = null;
-            bool SaveChanges = false;
-            try
-            {
-                if (System.IO.File.Exists(dialog.FileName)) { System.IO.File.Delete(dialog.FileName); }
-
-                GC.Collect();
-
-                xl = new EX.Application();
-                xl.Visible = false;
-
-                wb = (EX._Workbook)(xl.Workbooks.Add(Missing.Value));
-                
-                while (wb.Sheets.Count > 1)
-                    ((EX._Worksheet)wb.Sheets[1]).Delete();
-
-                for (int i = 0; i < ResultSetTabs.TabPages.Count - 1; i++)
-                    wb.Sheets.Add(Missing.Value, Missing.Value, Missing.Value, Missing.Value);
-
-
-                for (int i = 1; i < wb.Sheets.Count + 1; i++)
-                {
-                    TabPage tab = ResultSetTabs.TabPages[i - 1];
-                    
-                    sheet = (EX._Worksheet)wb.Sheets[i];
-                    sheet.Name = tab.Text;
-
-                    DataGridView grid = null;
-                    foreach (Control control in tab.Controls)
-                        if (control is DataGridView)
-                        {
-                            grid = (DataGridView)control;
-                            break;
-                        }
-
-                    DataTable dt = (DataTable)grid.DataSource;
-
-                    int y = 0;
-                    for (int x = 0; x < dt.Columns.Count; x++)
-                        sheet.Cells[y + 1, x + 1] = dt.Columns[x].ColumnName;
-
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        y++;
-
-                        for (int x = 0; x < dt.Columns.Count; x++)
-                            sheet.Cells[y + 1, x + 1] = row[x].ToString();
-                    }
-                }  
-
-                // Let loose control of the Excel instance
-
-                xl.Visible = false;
-                xl.UserControl = false;
-
-                // Set a flag saying that all is well and it is ok to save our changes to a file.
-
-                SaveChanges = true;
-
-                //  Save the file to disk
-
-                wb.SaveAs(dialog.FileName, EX.XlFileFormat.xlWorkbookNormal,
-                          null, null, false, false, EX.XlSaveAsAccessMode.xlShared,
-                          false, false, null, null, null);
-
-                
-                if (DialogResult.Yes != MessageBox.Show(this, "Open file in default editor?", "Open file", MessageBoxButtons.YesNoCancel))
-                    return;
-
-                System.Diagnostics.Process.Start(dialog.FileName);
-            }/*
-            catch (Exception err)
-            {
-                String msg;
-                msg = "Error: ";
-                msg = String.Concat(msg, err.Message);
-                msg = String.Concat(msg, " Line: ");
-                msg = String.Concat(msg, err.Source);
-                MessageBox.Show(msg);
-            }*/
-            finally
-            {
-
-                try
-                {
-                    // Repeat xl.Visible and xl.UserControl releases just to be sure
-                    // we didn't error out ahead of time.
-
-                    xl.Visible = false;
-                    xl.UserControl = false;
-                    // Close the document and avoid user prompts to save if our method failed.
-                    wb.Close(SaveChanges, null, null);
-                    xl.Workbooks.Close();
-                }
-                catch { }
-
-                // Gracefully exit out and destroy all COM objects to avoid hanging instances
-                // of Excel.exe whether our method failed or not.
-
-                xl.Quit();
-
-                //if (module != null) { Marshal.ReleaseComObject(module); }
-                if (sheet != null) { Marshal.ReleaseComObject(sheet); }
-                if (wb != null) { Marshal.ReleaseComObject(wb); }
-                if (xl != null) { Marshal.ReleaseComObject(xl); }
-
-                //module = null;
-                sheet = null;
-                wb = null;
-                xl = null;
-                GC.Collect();
-            }
-        }
 
     }
 

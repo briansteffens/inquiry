@@ -22,9 +22,6 @@ namespace ColdPlace.Inquiry
 
         private void CodeWindow_Load(object sender, EventArgs e)
         {
-            Code.ConfigurationManager.Language = "cs";
-            Code.Margins[0].Width = 20;
-
             Code.Text = CodeText;
         }
     }

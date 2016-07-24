@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueryForm));
-            this.QueryText = new ScintillaNet.Scintilla();
+            this.QueryText = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.ResultsTabs = new System.Windows.Forms.TabControl();
             this.SettingsTab = new System.Windows.Forms.TabPage();
@@ -82,7 +82,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.SafeQueryMode = new System.Windows.Forms.ToolStripButton();
             this.QueryProgress = new System.Windows.Forms.ToolStripProgressBar();
-            ((System.ComponentModel.ISupportInitialize)(this.QueryText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -113,23 +112,14 @@
             // 
             // QueryText
             // 
-            this.QueryText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.QueryText.Indentation.SmartIndentType = ScintillaNet.SmartIndent.CPP;
-            this.QueryText.Indentation.TabWidth = 2;
+            this.QueryText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.QueryText.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QueryText.Location = new System.Drawing.Point(0, 3);
+            this.QueryText.Multiline = true;
             this.QueryText.Name = "QueryText";
-            this.QueryText.Scrolling.HorizontalWidth = 200;
             this.QueryText.Size = new System.Drawing.Size(514, 143);
-            this.QueryText.Styles.BraceBad.FontName = "Verdana";
-            this.QueryText.Styles.BraceLight.FontName = "Verdana";
-            this.QueryText.Styles.ControlChar.FontName = "Verdana";
-            this.QueryText.Styles.Default.FontName = "Verdana";
-            this.QueryText.Styles.IndentGuide.FontName = "Verdana";
-            this.QueryText.Styles.LastPredefined.FontName = "Verdana";
-            this.QueryText.Styles.LineNumber.FontName = "Verdana";
-            this.QueryText.Styles.Max.FontName = "Verdana";
             this.QueryText.TabIndex = 0;
             // 
             // splitContainer2
@@ -185,9 +175,9 @@
             // 
             // DescriptionText
             // 
-            this.DescriptionText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.DescriptionText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DescriptionText.Location = new System.Drawing.Point(104, 49);
             this.DescriptionText.Multiline = true;
             this.DescriptionText.Name = "DescriptionText";
@@ -206,8 +196,8 @@
             // 
             // DatabaseCombo
             // 
-            this.DatabaseCombo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.DatabaseCombo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DatabaseCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DatabaseCombo.FormattingEnabled = true;
             this.DatabaseCombo.Location = new System.Drawing.Point(104, 19);
@@ -231,7 +221,7 @@
             this.Output.Location = new System.Drawing.Point(4, 4);
             this.Output.Name = "Output";
             this.Output.Padding = new System.Windows.Forms.Padding(3);
-            this.Output.Size = new System.Drawing.Size(803, 389);
+            this.Output.Size = new System.Drawing.Size(506, 168);
             this.Output.TabIndex = 0;
             this.Output.Text = "Output";
             this.Output.UseVisualStyleBackColor = true;
@@ -254,7 +244,7 @@
             this.Results.Location = new System.Drawing.Point(4, 4);
             this.Results.Name = "Results";
             this.Results.Padding = new System.Windows.Forms.Padding(3);
-            this.Results.Size = new System.Drawing.Size(803, 389);
+            this.Results.Size = new System.Drawing.Size(506, 168);
             this.Results.TabIndex = 1;
             this.Results.Text = "Results";
             this.Results.UseVisualStyleBackColor = true;
@@ -326,8 +316,6 @@
             // 
             this.allTabsToExcelToolStripMenuItem.Name = "allTabsToExcelToolStripMenuItem";
             this.allTabsToExcelToolStripMenuItem.Size = new System.Drawing.Size(200, 24);
-            this.allTabsToExcelToolStripMenuItem.Text = "All tabs to Excel";
-            this.allTabsToExcelToolStripMenuItem.Click += new System.EventHandler(this.allTabsToExcelToolStripMenuItem_Click);
             // 
             // toolStripLabel1
             // 
@@ -358,7 +346,7 @@
             this.Schema.Controls.Add(this.SchemaToolStrip);
             this.Schema.Location = new System.Drawing.Point(4, 4);
             this.Schema.Name = "Schema";
-            this.Schema.Size = new System.Drawing.Size(803, 389);
+            this.Schema.Size = new System.Drawing.Size(506, 168);
             this.Schema.TabIndex = 3;
             this.Schema.Text = "Schema";
             this.Schema.UseVisualStyleBackColor = true;
@@ -373,7 +361,7 @@
             this.SchemaView.Location = new System.Drawing.Point(0, 27);
             this.SchemaView.MultiSelect = false;
             this.SchemaView.Name = "SchemaView";
-            this.SchemaView.Size = new System.Drawing.Size(803, 362);
+            this.SchemaView.Size = new System.Drawing.Size(506, 141);
             this.SchemaView.TabIndex = 0;
             this.SchemaView.UseCompatibleStateImageBehavior = false;
             this.SchemaView.View = System.Windows.Forms.View.Details;
@@ -391,7 +379,7 @@
             this.ParentSchemaButton});
             this.SchemaToolStrip.Location = new System.Drawing.Point(0, 0);
             this.SchemaToolStrip.Name = "SchemaToolStrip";
-            this.SchemaToolStrip.Size = new System.Drawing.Size(803, 27);
+            this.SchemaToolStrip.Size = new System.Drawing.Size(506, 27);
             this.SchemaToolStrip.TabIndex = 1;
             this.SchemaToolStrip.Text = "toolStrip2";
             // 
@@ -421,7 +409,7 @@
             this.RawSchema.Controls.Add(this.RawSchemaView);
             this.RawSchema.Location = new System.Drawing.Point(4, 4);
             this.RawSchema.Name = "RawSchema";
-            this.RawSchema.Size = new System.Drawing.Size(803, 389);
+            this.RawSchema.Size = new System.Drawing.Size(506, 168);
             this.RawSchema.TabIndex = 2;
             this.RawSchema.Text = "Raw Schema";
             this.RawSchema.UseVisualStyleBackColor = true;
@@ -440,32 +428,32 @@
             this.RawSchemaSearch});
             this.RawSchemaToolStrip.Location = new System.Drawing.Point(0, 0);
             this.RawSchemaToolStrip.Name = "RawSchemaToolStrip";
-            this.RawSchemaToolStrip.Size = new System.Drawing.Size(803, 27);
+            this.RawSchemaToolStrip.Size = new System.Drawing.Size(506, 29);
             this.RawSchemaToolStrip.TabIndex = 1;
             this.RawSchemaToolStrip.Text = "toolStrip2";
             // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(44, 24);
+            this.toolStripLabel3.Size = new System.Drawing.Size(44, 26);
             this.toolStripLabel3.Text = "Type:";
             // 
             // RawSchemaTypeText
             // 
             this.RawSchemaTypeText.Name = "RawSchemaTypeText";
-            this.RawSchemaTypeText.Size = new System.Drawing.Size(125, 27);
+            this.RawSchemaTypeText.Size = new System.Drawing.Size(125, 29);
             this.RawSchemaTypeText.Text = "Databases";
             // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(76, 24);
+            this.toolStripLabel4.Size = new System.Drawing.Size(76, 26);
             this.toolStripLabel4.Text = "Restraints:";
             // 
             // RawSchemaRestraint1Text
             // 
             this.RawSchemaRestraint1Text.Name = "RawSchemaRestraint1Text";
-            this.RawSchemaRestraint1Text.Size = new System.Drawing.Size(125, 27);
+            this.RawSchemaRestraint1Text.Size = new System.Drawing.Size(125, 29);
             // 
             // RawSchemaRestraint2Text
             // 
@@ -494,9 +482,9 @@
             // 
             // RawSchemaView
             // 
-            this.RawSchemaView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.RawSchemaView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RawSchemaView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RawSchemaView.Location = new System.Drawing.Point(0, 28);
             this.RawSchemaView.Name = "RawSchemaView";
@@ -509,7 +497,7 @@
             this.TextProcessorTab.Controls.Add(this.splitContainer3);
             this.TextProcessorTab.Location = new System.Drawing.Point(4, 4);
             this.TextProcessorTab.Name = "TextProcessorTab";
-            this.TextProcessorTab.Size = new System.Drawing.Size(803, 389);
+            this.TextProcessorTab.Size = new System.Drawing.Size(506, 168);
             this.TextProcessorTab.TabIndex = 5;
             this.TextProcessorTab.Text = "Text Processor";
             this.TextProcessorTab.UseVisualStyleBackColor = true;
@@ -558,8 +546,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.TextProcessorDescription);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
@@ -579,9 +567,9 @@
             // 
             // TextProcessorParams
             // 
-            this.TextProcessorParams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextProcessorParams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TextProcessorParams.Location = new System.Drawing.Point(3, 91);
             this.TextProcessorParams.Name = "TextProcessorParams";
             this.TextProcessorParams.Size = new System.Drawing.Size(462, 256);
@@ -605,7 +593,7 @@
             this.FinalQuery.Controls.Add(this.FinalQueryText);
             this.FinalQuery.Location = new System.Drawing.Point(4, 4);
             this.FinalQuery.Name = "FinalQuery";
-            this.FinalQuery.Size = new System.Drawing.Size(803, 389);
+            this.FinalQuery.Size = new System.Drawing.Size(506, 168);
             this.FinalQuery.TabIndex = 6;
             this.FinalQuery.Text = "Final Query";
             this.FinalQuery.UseVisualStyleBackColor = true;
@@ -692,8 +680,8 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Query";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.QueryText)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
@@ -737,7 +725,7 @@
 
         #endregion
 
-        private ScintillaNet.Scintilla QueryText;
+        private System.Windows.Forms.TextBox QueryText;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.TabControl ResultsTabs;

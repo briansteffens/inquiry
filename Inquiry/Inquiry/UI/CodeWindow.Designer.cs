@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Code = new ScintillaNet.Scintilla();
+            this.Code = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Code)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,14 +38,6 @@
             this.Code.Location = new System.Drawing.Point(0, 0);
             this.Code.Name = "Code";
             this.Code.Size = new System.Drawing.Size(679, 455);
-            this.Code.Styles.BraceBad.FontName = "Verdana";
-            this.Code.Styles.BraceLight.FontName = "Verdana";
-            this.Code.Styles.ControlChar.FontName = "Verdana";
-            this.Code.Styles.Default.FontName = "Verdana";
-            this.Code.Styles.IndentGuide.FontName = "Verdana";
-            this.Code.Styles.LastPredefined.FontName = "Verdana";
-            this.Code.Styles.LineNumber.FontName = "Verdana";
-            this.Code.Styles.Max.FontName = "Verdana";
             this.Code.TabIndex = 0;
             // 
             // CodeWindow
@@ -65,6 +57,6 @@
 
         #endregion
 
-        private ScintillaNet.Scintilla Code;
+        private System.Windows.Forms.TextBox Code;
     }
 }
